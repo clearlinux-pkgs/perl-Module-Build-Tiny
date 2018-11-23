@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Build-Tiny
 Version  : 0.039
-Release  : 6
+Release  : 7
 URL      : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
 Summary  : 'A tiny replacement for Module::Build'
