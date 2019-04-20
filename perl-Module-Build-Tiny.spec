@@ -10,6 +10,7 @@ Source0  : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0
 Summary  : A tiny replacement for Module::Build
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Module-Build-Tiny-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(ExtUtils::Config)
 BuildRequires : perl(ExtUtils::Helpers)
@@ -19,6 +20,24 @@ BuildRequires : perl(ExtUtils::InstallPaths)
 This archive contains the distribution Module-Build-Tiny,
 version 0.039:
 A tiny replacement for Module::Build
+
+%package dev
+Summary: dev components for the perl-Module-Build-Tiny package.
+Group: Development
+Provides: perl-Module-Build-Tiny-devel = %{version}-%{release}
+Requires: perl-Module-Build-Tiny = %{version}-%{release}
+
+%description dev
+dev components for the perl-Module-Build-Tiny package.
+
+
+%package license
+Summary: license components for the perl-Module-Build-Tiny package.
+Group: Default
+
+%description license
+license components for the perl-Module-Build-Tiny package.
+
 
 %prep
 %setup -q -n Module-Build-Tiny-0.039
@@ -52,3 +71,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/Module/Build/Tiny.pm
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Module::Build::Tiny.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Module-Build-Tiny/LICENSE
