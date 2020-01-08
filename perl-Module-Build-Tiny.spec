@@ -4,13 +4,14 @@
 #
 Name     : perl-Module-Build-Tiny
 Version  : 0.039
-Release  : 14
+Release  : 15
 URL      : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
-Summary  : A tiny replacement for Module::Build
+Summary  : 'A tiny replacement for Module::Build'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Module-Build-Tiny-license = %{version}-%{release}
+Requires: perl-Module-Build-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(ExtUtils::Config)
 BuildRequires : perl(ExtUtils::Helpers)
@@ -39,14 +40,24 @@ Group: Default
 license components for the perl-Module-Build-Tiny package.
 
 
+%package perl
+Summary: perl components for the perl-Module-Build-Tiny package.
+Group: Default
+Requires: perl-Module-Build-Tiny = %{version}-%{release}
+
+%description perl
+perl components for the perl-Module-Build-Tiny package.
+
+
 %prep
 %setup -q -n Module-Build-Tiny-0.039
+cd %{_builddir}/Module-Build-Tiny-0.039
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -58,7 +69,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/LICENSE
+cp %{_builddir}/Module-Build-Tiny-0.039/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/04cc119ea0149d20ad3dfa21a48c5f1cd7ca33c4
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -71,7 +82,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Module/Build/Tiny.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -79,4 +89,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Module-Build-Tiny/LICENSE
+/usr/share/package-licenses/perl-Module-Build-Tiny/04cc119ea0149d20ad3dfa21a48c5f1cd7ca33c4
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Module/Build/Tiny.pm
