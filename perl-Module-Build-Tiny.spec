@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Build-Tiny
 Version  : 0.039
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
 Summary  : 'A tiny replacement for Module::Build'
@@ -93,4 +93,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Module/Build/Tiny.pm
+/usr/lib/perl5/*
