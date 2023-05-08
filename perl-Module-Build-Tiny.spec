@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-Module-Build-Tiny
-Version  : 0.039
-Release  : 24
-URL      : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
+Version  : 0.045
+Release  : 25
+URL      : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.045.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.045.tar.gz
 Summary  : 'A tiny replacement for Module::Build'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -23,7 +23,7 @@ BuildRequires : perl(ExtUtils::InstallPaths)
 
 %description
 This archive contains the distribution Module-Build-Tiny,
-version 0.039:
+version 0.045:
 A tiny replacement for Module::Build
 
 %package dev
@@ -54,8 +54,8 @@ perl components for the perl-Module-Build-Tiny package.
 
 
 %prep
-%setup -q -n Module-Build-Tiny-0.039
-cd %{_builddir}/Module-Build-Tiny-0.039
+%setup -q -n Module-Build-Tiny-0.045
+cd %{_builddir}/Module-Build-Tiny-0.045
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -73,7 +73,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny
-cp %{_builddir}/Module-Build-Tiny-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/04cc119ea0149d20ad3dfa21a48c5f1cd7ca33c4 || :
+cp %{_builddir}/Module-Build-Tiny-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/083e12fbfa8ceb150b5287089faf40755fb9fe8d || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -93,7 +93,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Module-Build-Tiny/04cc119ea0149d20ad3dfa21a48c5f1cd7ca33c4
+/usr/share/package-licenses/perl-Module-Build-Tiny/083e12fbfa8ceb150b5287089faf40755fb9fe8d
 
 %files perl
 %defattr(-,root,root,-)
