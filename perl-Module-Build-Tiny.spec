@@ -5,12 +5,13 @@
 #
 Name     : perl-Module-Build-Tiny
 Version  : 0.046
-Release  : 26
+Release  : 27
 URL      : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.046.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.046.tar.gz
 Summary  : 'A tiny replacement for Module::Build'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Module-Build-Tiny-license = %{version}-%{release}
 Requires: perl-Module-Build-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(ExtUtils::Config)
@@ -33,6 +34,14 @@ Requires: perl-Module-Build-Tiny = %{version}-%{release}
 
 %description dev
 dev components for the perl-Module-Build-Tiny package.
+
+
+%package license
+Summary: license components for the perl-Module-Build-Tiny package.
+Group: Default
+
+%description license
+license components for the perl-Module-Build-Tiny package.
 
 
 %package perl
@@ -63,6 +72,8 @@ fi
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny
+cp %{_builddir}/Module-Build-Tiny-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/8977d6a5da6acd7fb01b510b9ecd47919a447286 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -79,6 +90,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Module::Build::Tiny.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Module-Build-Tiny/8977d6a5da6acd7fb01b510b9ecd47919a447286
 
 %files perl
 %defattr(-,root,root,-)
