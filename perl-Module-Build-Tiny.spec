@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-Module-Build-Tiny
-Version  : 0.046
-Release  : 27
-URL      : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.046.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.046.tar.gz
+Version  : 0.047
+Release  : 28
+URL      : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.047.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.047.tar.gz
 Summary  : 'A tiny replacement for Module::Build'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -23,7 +23,7 @@ BuildRequires : perl(ExtUtils::InstallPaths)
 
 %description
 This archive contains the distribution Module-Build-Tiny,
-version 0.046:
+version 0.047:
 A tiny replacement for Module::Build
 
 %package dev
@@ -54,8 +54,8 @@ perl components for the perl-Module-Build-Tiny package.
 
 
 %prep
-%setup -q -n Module-Build-Tiny-0.046
-cd %{_builddir}/Module-Build-Tiny-0.046
+%setup -q -n Module-Build-Tiny-0.047
+cd %{_builddir}/Module-Build-Tiny-0.047
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -73,7 +73,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny
-cp %{_builddir}/Module-Build-Tiny-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/8977d6a5da6acd7fb01b510b9ecd47919a447286 || :
+cp %{_builddir}/Module-Build-Tiny-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Build-Tiny/83ea5587776238d07e8f5f3f26a5b92192cf9536 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -93,7 +93,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Module-Build-Tiny/8977d6a5da6acd7fb01b510b9ecd47919a447286
+/usr/share/package-licenses/perl-Module-Build-Tiny/83ea5587776238d07e8f5f3f26a5b92192cf9536
 
 %files perl
 %defattr(-,root,root,-)
